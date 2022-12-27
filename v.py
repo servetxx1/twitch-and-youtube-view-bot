@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 # Proxylist.txt dosyasını okuyun ve proxy adreslerini bir listeye alın
-with open("proxylist.txt") as f:
+with open("proxies.txt") as f:
     proxy_addresses = f.readlines()
 proxy_addresses = [x.strip() for x in proxy_addresses]
 
