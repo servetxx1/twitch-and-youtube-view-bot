@@ -1,7 +1,9 @@
 from selenium import webdriver
 
-# Proxy adreslerinizi bir liste olarak tanımlayın
-proxy_addresses = ["35.236.145.25:8090","35.236.145.25:8090","1.255.134.136:3128","103.154.237.110:8080","103.48.68.35:82"]
+# Proxylist.txt dosyasını okuyun ve proxy adreslerini bir listeye alın
+with open("proxylist.txt") as f:
+    proxy_addresses = f.readlines()
+proxy_addresses = [x.strip() for x in proxy_addresses]
 
 # Her bir proxy adresi için bir tarayıcı açın
 drivers = []
@@ -16,6 +18,6 @@ for proxy_address in proxy_addresses:
 
     driver = webdriver.Firefox(firefox_profile=firefox_profile)
     drivers.append(driver)
-
-
-    driver.get("https://www.twitch.tv/ggeinn")
+# İstediğiniz web sayfalarını açın
+for driver in drivers:
+    driver.get("https://ifconfig.co")
